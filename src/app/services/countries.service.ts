@@ -6,11 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CountryService {
-  private apiUrl = 'https://restcountries.com/v3.1/all';
+  private apiUrl = 'https://restcountries.com/v3.1';
 
   constructor(private http: HttpClient) {}
 
   getCountries(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.apiUrl}/all`);
+  }
+
+  getCountryByNameCommon(value: string): Observable<any[]> {
+    return this.http.get<any>(`${this.apiUrl}/name/${value}?fullText=true`);
   }
 }
