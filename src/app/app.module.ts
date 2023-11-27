@@ -12,15 +12,27 @@ import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSortModule } from '@angular/material/sort';
+import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CountryService } from './services/countries.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CountryDetailsComponent } from './country-details/country-details.component';
+import { MatButtonModule } from '@angular/material/button';
+import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CountryListComponent
+    CountryListComponent,
+    CountryDetailsComponent,
+    FavoritesPageComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +44,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatSlideToggleModule,
     NgbModule,
     MatCardModule,
+    MatTableModule,
+    MatIconModule, 
+    MatSortModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatPaginatorModule,
   ],
   providers: [CountryService],
   bootstrap: [AppComponent]
