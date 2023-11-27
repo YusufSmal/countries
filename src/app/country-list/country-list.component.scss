@@ -1,21 +1,48 @@
-.country-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+table {
+  width: 100%;
+}
+tr {
+  height: 100px;
 }
 
-.country-card {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
+.country-flag {
+  height: 100px;
+  width: 200px;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+.coatOfArms {
+  height: 60px;
 }
 
-.coat-of-arms {
-  max-width: 50px;
-  margin-top: -20px; /* Adjust as needed */
+.combined-image {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.favorite-icon {
+  color: red;
+}
+
+.favorits-page {
+  border: 1px solid #afafaf;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.favorites-page-link {
+  .icon {
+    margin-right: 10px;
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  color: blue;
 }
