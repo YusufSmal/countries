@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CountryDetailsComponent } from './country-details/country-details.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
+import { CountryModalComponent } from './country-modal/country-modal.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { FavoritesPageComponent } from './favorites-page/favorites-page.componen
     AppComponent,
     CountryListComponent,
     CountryDetailsComponent,
-    FavoritesPageComponent
+    FavoritesPageComponent,
+    CountryModalComponent
   ],
   imports: [
     BrowserModule,
