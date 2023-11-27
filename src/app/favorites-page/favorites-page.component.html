@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2>Favorite Countries</h2>
+  <div *ngIf="detailedCountryInfo.length === 0">
+    <p>No counties saved as favorite.</p>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Flag</th>
+        <th scope="col">Name</th>
+        <th scope="col">Population</th>
+        <th scope="col">Favorites</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of detailedCountryInfo">
+        <td>
+          <img [src]="country.flags.svg" alt="{{ country.name.common }}" height="20"/>
+        </td>
+        <td>{{ country.name.common }}</td>
+        <td>{{ country.population | number }}</td>
+        <td>
+          <button mat-icon-button (click)="removeFromFavorites(country)">
+            <mat-icon [ngClass]="{'favorite-icon': isFavorite(country)}">favorite</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
