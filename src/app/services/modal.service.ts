@@ -14,6 +14,7 @@ export class ModalService {
       width: '500px',
       data: { country },
     });
+    console.log('modal closed')
     return dialogRef.afterClosed();
   }
 }
