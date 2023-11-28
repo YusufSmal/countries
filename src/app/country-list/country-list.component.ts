@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-country-list',
@@ -26,11 +27,16 @@ export class CountryListComponent implements OnInit, AfterViewInit {
 
   favoriteCountries: any[] = [];
 
-  constructor(private countryService: CountryService, private router: Router) {}
+  constructor(
+    private countryService: CountryService,
+    private router: Router,
+    private modalService: ModalService
+  ) {}
 
   ngOnInit(): void {
     this.countryService.getCountries().subscribe((data) => {
       this.countries = data;
+      console.log(this.countries[0]);
       this.dataSource = new MatTableDataSource(this.countries);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -56,9 +62,15 @@ export class CountryListComponent implements OnInit, AfterViewInit {
     }
   }
 
-  redirectToDetails(country: any): void {
-    console.log('Cioc Code: ', country.name.common);
-    this.router.navigate(['/country-details', country.name.common]);
+  openCountryModal(country: any): void {
+    const dialogRef = this.modalService.openCountryModal(country);
+
+    dialogRef.subscribe((result) => {
+      if (result) {
+        console.log('Modal result:', result);
+        this.isFavorite(result);
+      }
+    });
   }
 
   toggleFavorite(country: any): void {
