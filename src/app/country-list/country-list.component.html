@@ -15,11 +15,12 @@
       <!-- Flag Column -->
       <ng-container matColumnDef="flag">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Flag</th>
-        <td mat-cell *matCellDef="let country" (click)="redirectToDetails(country)">
+        <td mat-cell *matCellDef="let country">
           <img
             class="country-flag"
             [src]="country.flags.png"
             alt="{{ country.name.common }} Flag"
+            (click)="openCountryModal(country)"
           />
         </td>
       </ng-container>
@@ -27,7 +28,7 @@
       <!-- Coat of Arms Column -->
       <ng-container matColumnDef="coatOfArms">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Coat of Arms</th>
-        <td mat-cell *matCellDef="let country" (click)="redirectToDetails(country)">
+        <td mat-cell *matCellDef="let country">
           <div
             class="combined-image"
             style="
@@ -47,13 +48,13 @@
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-        <td mat-cell *matCellDef="let country" (click)="redirectToDetails(country)">{{ country.name.common }}</td>
+        <td mat-cell *matCellDef="let country">{{ country.name.common }}</td>
       </ng-container>
 
       <!-- Region Column -->
       <ng-container matColumnDef="region">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Region</th>
-        <td mat-cell *matCellDef="let country" (click)="redirectToDetails(country)">{{ country.region }}</td>
+        <td mat-cell *matCellDef="let country">{{ country.region }}</td>
       </ng-container>
 
       <!-- Favorite Button Column -->
