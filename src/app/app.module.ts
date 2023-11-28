@@ -18,12 +18,11 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CountryService } from './services/countries.service';
 import { HttpClientModule } from '@angular/common/http';
-import { CountryDetailsComponent } from './country-details/country-details.component';
-import { MatButtonModule } from '@angular/material/button';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
 import { CountryModalComponent } from './country-modal/country-modal.component';
 
@@ -32,7 +31,6 @@ import { CountryModalComponent } from './country-modal/country-modal.component';
   declarations: [
     AppComponent,
     CountryListComponent,
-    CountryDetailsComponent,
     FavoritesPageComponent,
     CountryModalComponent
   ],
