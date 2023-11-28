@@ -1,0 +1,54 @@
+<div class="container" *ngIf="country">
+  <div class="main">
+    <div class="title">
+      <div class="coa">
+        <img
+          class="subtitle-coatOfArms"
+          [src]="country.coatOfArms.svg"
+          alt="{{ country.name.common }}"
+        />
+      </div>
+      <div class="name">
+        <div class="common">
+          <h1 class="subtitle-heading">{{ country.name.common }}</h1>
+        </div>
+        <div class="official">
+          <h3 class="subtitle-heading">{{ country.name.official }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details">
+    <div class="flag">
+      <img [src]="country.flags.svg" alt="{{ country.name.common }}" />
+    </div>
+    <div class="stats">
+      <p>
+        <strong>{{ country.name.common }}</strong> is locatedon in the region of 
+        <strong>{{ country.subregion }}</strong>, on the continent of 
+        <strong>{{ country.continents[0] }}</strong>.
+      </p>
+      <p>
+        <strong>{{ country.name.common }}'s</strong> capital is
+        <strong>{{ country.capital[0] }}</strong> and has a current population of
+        <strong>{{ country.population | number }}</strong> who speak 
+        <strong>
+          <span *ngFor="let language of lang | keyvalue">
+            {{ language }}
+          </span>
+        </strong>
+      </p>
+      <p>
+        The country is situated in the
+        <strong>{{ country.timezones }}</strong> timezone, with thier week starting on a 
+        <strong>{{ country.startOfWeek | titlecase }}</strong>.
+      </p>
+      <p>
+        <strong>
+          <button class="btn btn-primary" (click)="openMapLocation(country.maps.googleMaps)">View Country in Google Maps</button>
+        </strong>
+      </p>
+    </div>
+  </div>
+</div>
