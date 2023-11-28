@@ -25,6 +25,7 @@ import { CountryService } from './services/countries.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
 import { CountryModalComponent } from './country-modal/country-modal.component';
+import { CountryDetailsComponent } from './country-details/country-details.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { CountryModalComponent } from './country-modal/country-modal.component';
     AppComponent,
     CountryListComponent,
     FavoritesPageComponent,
-    CountryModalComponent
+    CountryModalComponent,
+    CountryDetailsComponent
   ],
   imports: [
     BrowserModule,

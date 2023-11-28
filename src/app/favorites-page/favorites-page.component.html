@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let country of detailedCountryInfo">
+      <tr *ngFor="let country of detailedCountryInfo" (click)="redirectToDetails(country)">
         <td>
           <img [src]="country.flags.svg" alt="{{ country.name.common }}" height="20"/>
         </td>
