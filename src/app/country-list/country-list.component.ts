@@ -36,7 +36,6 @@ export class CountryListComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.countryService.getCountries().subscribe((data) => {
       this.countries = data;
-      console.log(this.countries[0]);
       this.dataSource = new MatTableDataSource(this.countries);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -63,14 +62,7 @@ export class CountryListComponent implements OnInit, AfterViewInit {
   }
 
   openCountryModal(country: any): void {
-    const dialogRef = this.modalService.openCountryModal(country);
-
-    dialogRef.subscribe((result) => {
-      if (result) {
-        console.log('Modal result:', result);
-        this.isFavorite(result);
-      }
-    });
+    this.modalService.openCountryModal(country);
   }
 
   toggleFavorite(country: any): void {
@@ -96,9 +88,5 @@ export class CountryListComponent implements OnInit, AfterViewInit {
     return this.favoriteCountries.some(
       (fav) => fav.name === country.name.common
     );
-  }
-
-  navigateToFavorites(): void {
-    this.router.navigate(['/favorites']);
   }
 }

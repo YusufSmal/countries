@@ -41,9 +41,6 @@ export class FavoritesPageComponent implements OnInit {
   }
 
   redirectToDetails(country: any): void {
-    console.log('Cioc Code: ', country.name.common);
-    // Use the router to navigate to the details page
-    // You should replace 'country-details' with the actual route for your details page
     this.router.navigate(['/country-details', country.name.common]);
   }
 
