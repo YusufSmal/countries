@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-country-modal',
@@ -9,9 +8,6 @@ import { Subject } from 'rxjs';
 })
 export class CountryModalComponent implements OnInit {
   favoriteCountries: any[] = [];
-
-  private favoriteUpdateSubject = new Subject<any>();
-  favoriteUpdate$ = this.favoriteUpdateSubject.asObservable();
 
   constructor(
     public dialogRef: MatDialogRef<CountryModalComponent>,
@@ -42,7 +38,6 @@ export class CountryModalComponent implements OnInit {
   }
 
   closeModal(result: any = null): void {
-    this.favoriteUpdateSubject.next({ updatedCountry: this.data.country });
     this.dialogRef.close(result);
   }
 
