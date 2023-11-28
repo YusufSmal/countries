@@ -1,1 +1,27 @@
-<p>country-modal works!</p>
+<div class="main">
+  <div class="header">
+    <h1 class="title">
+      Details for: <strong>{{ data.country.name.common }}</strong>
+    </h1>
+    <button mat-icon-button (click)="toggleFavorite(data.country)">
+      <mat-icon [ngClass]="{'favorite-icon': isFavorite(data.country)}">favorite</mat-icon>
+    </button>
+  </div>
+
+  <div mat-dialog-content>
+    <p><strong>Region: </strong> {{ data.country.region }}</p>
+    <p><strong>Fifa Code:</strong> {{ data.country.cca3 }}</p>
+    <p><strong>Population: </strong> {{ data.country.population | number }}</p>
+    <p><strong>Languages: </strong> {{ data.country.lanugaes }}</p>
+    <p><strong>Timezone: </strong> {{ data.country.timezones }}</p>
+    <p><strong>Capital City: </strong> {{ data.country.capital }}</p>
+    <p><strong>Currencies: </strong> {{ data.country.currencies }}</p>
+    <p>
+      <strong>Map View: </strong> <a [href]="data.country.maps.googleMaps"></a>
+    </p>
+  </div>
+
+  <div class="footer">
+    <button class="button" mat-button (click)="closeModal()">Close</button>
+  </div>
+</div>
